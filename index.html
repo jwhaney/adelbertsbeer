@@ -44,17 +44,18 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiYWRlbGJlcnRzIiwiYSI6Iko3dC1KWU0ifQ.D2Qk72u3XZ
 var map = L.mapbox.map('map')
   .setView([31, -99], 4)
   .addControl(L.mapbox.geocoderControl('mapbox.places', {
-	autocomplete: true
+	autocomplete: true,
+	geocoderControl.on(autoselect)
   }));
 
 var layers = {
       OpenStreetMap: L.mapbox.tileLayer('adelberts.11b463db'),
       Terrain: L.mapbox.tileLayer('adelberts.e78b2e70'),
       Satellite: L.mapbox.tileLayer('adelberts.c65aafcc'),
-	  Light: L.mapbox.tileLayer('mapbox.light'),
-	  Dark: L.mapbox.tileLayer('mapbox.dark')
+      Light: L.mapbox.tileLayer('mapbox.light'),
+      Dark: L.mapbox.tileLayer('mapbox.dark')
 };
-layers.Dark.addTo(map);
+layers.Light.addTo(map);
 L.control.layers(layers).addTo(map);
 
 L.control.locate().addTo(map);
