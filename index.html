@@ -37,7 +37,6 @@
 
 <!--- Data Source for markers --->
 <script src='https://cdn.rawgit.com/adelbertsbeer/adelbertsbeer.github.io/50f85a0/javascript/allBeerLocations.js'></script>
-
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWRlbGJlcnRzIiwiYSI6Iko3dC1KWU0ifQ.D2Qk72u3XZWjUIYmkkTuVw';
 
@@ -46,7 +45,6 @@ var map = L.mapbox.map('map')
   .addControl(L.mapbox.geocoderControl('mapbox.places', {
 	autocomplete: true
   }));
-
 var layers = {
       OpenStreetMap: L.mapbox.tileLayer('adelberts.11b463db'),
       Terrain: L.mapbox.tileLayer('adelberts.e78b2e70'),
@@ -54,7 +52,8 @@ var layers = {
 	  Light: L.mapbox.tileLayer('mapbox.light'),
 	  Dark: L.mapbox.tileLayer('mapbox.dark')
 };
-layers.Dark.addTo(map);
+layers.Light.addTo(map);
+
 L.control.layers(layers).addTo(map);
 
 L.control.locate().addTo(map);
@@ -95,7 +94,6 @@ for (var i = 0; i < beerLocations.length; i++) {
 map.addLayer(markers);
 
 var bounds = markers.getBounds();
-
 function fit() {
 	map.fitBounds(bounds);
 };
