@@ -1,0 +1,78 @@
+html,body { margin: 0; padding: 0; }
+
+#map { position: absolute; top: 70px; bottom: 0; right: 0; left: 0; }
+
+#title { 
+    position: absolute;
+    height: 70px; 
+    width: 100%; 
+    background-color: #14385c;
+}
+
+h2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+#basemaps-wrapper {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    z-index: 400;
+    background: white;
+    padding: 10px 5px 5px 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14;
+}
+
+#basemaps { 
+    margin-bottom: 5px;
+}
+
+.txdot-img {
+    float: left;
+    padding-top: 5px;
+}
+
+#query {
+    position: absolute;
+    top: 80px;
+    right: 200px;
+    z-index: 400;
+    background: white;
+    padding: 10px 5px 5px 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14;
+}
+
+#county { margin-bottom: 5px; }
+
+#toc {
+    position: absolute;
+    top: 205px;
+    left: 10px;
+    z-index: 400;
+    background: white;
+    width: 250px;
+    height: 400px;
+    padding: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14;
+}
+
+@media screen and (max-width: 1000px) {
+    h2 {
+        font-size: 20px;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 300;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    h2 {
+        font-size: 14px;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 300;
+    }
+}

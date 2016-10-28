@@ -4,11 +4,30 @@
 <head>
 	<meta charset=utf-8 />
 	<title align=center>Find Adelbert's Beer</title>
+    
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<script src='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
-	<link href='https://www.mapbox.com/base/latest/base.css' rel='stylesheet' />
-	<link href='style/style.css' rel='stylesheet' />
+	<!-- Load jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Load Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Load Leaflet from CDN-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet-src.js"></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.0.3"></script>
+    <!-- Load my content -->
+    <link rel="stylesheet" href="style/style.css" />
+    <!-- Load Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <!-- Load local leaflet zoomhome content -->
+    <link rel="stylesheet" href="style/leaflet.zoomhome.css"/>
+    <script src="js/leaflet.zoomhome.min.js"></script>
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <!-- Load ESRI Leaflet Geocoder -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.1.4/dist/esri-leaflet-geocoder.css">
+    <script src="https://unpkg.com/esri-leaflet-geocoder@2.1.4"></script>
 
 	<style>
 		body { margin:0; padding:0; }
@@ -37,68 +56,7 @@
 
 <!--- Data Source for markers --->
 <script src='https://cdn.rawgit.com/adelbertsbeer/adelbertsbeer.github.io/50f85a0/javascript/allBeerLocations.js'></script>
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoiYWRlbGJlcnRzIiwiYSI6Iko3dC1KWU0ifQ.D2Qk72u3XZWjUIYmkkTuVw';
 
-var map = L.mapbox.map('map')
-  .setView([31, -99], 4)
-  .addControl(L.mapbox.geocoderControl('mapbox.places', {
-	autocomplete: true
-  }));
-var layers = {
-      OpenStreetMap: L.mapbox.tileLayer('adelberts.11b463db'),
-      Terrain: L.mapbox.tileLayer('adelberts.e78b2e70'),
-      Satellite: L.mapbox.tileLayer('adelberts.c65aafcc'),
-	  Light: L.mapbox.tileLayer('mapbox.light'),
-	  Dark: L.mapbox.tileLayer('mapbox.dark')
-};
-layers.Light.addTo(map);
-
-L.control.layers(layers).addTo(map);
-
-L.control.locate().addTo(map);
-
-L.mapbox.featureLayer({
-    'type': 'Feature',
-    'geometry': {
-        'type': 'Point',
-        'coordinates': [
-          -97.7199070,
-          30.3825210,
-        ]
-    },
-    'properties': {
-        'title': 'Adelberts Brewery World Headquarters',
-		'description': '2314 Rutland Dr #100, Austin, TX 78758',
-		'marker-color': '#654321',
-		'marker-size': 'large',
-		'marker-symbol': 'star'
-    }
-}).addTo(map);
-
-var markers = new L.MarkerClusterGroup();
-for (var i = 0; i < beerLocations.length; i++) {
-    var a = beerLocations[i];
-    var title = a[2];
-    var address = a[3];
-    var city = a[4];
-    var state = a[5];
-    var zip = a[6];
-    var marker = L.marker(new L.LatLng(a[0], a[1]), {
-        icon: L.mapbox.marker.icon({'marker-symbol': 'alcohol-shop', 'marker-color': '654321'}),
-	title: title
-    });
-    marker.bindPopup(title + '<br>' + address + '<br>' + city + ', ' + state + ' ' + zip);
-    markers.addLayer(marker);
-}
-map.addLayer(markers);
-
-var bounds = markers.getBounds();
-function fit() {
-	map.fitBounds(bounds);
-};
-
-map.fitBounds(bounds);
-</script>
+<script src='javascript/map.js'</script>
 </body>
 </html>
