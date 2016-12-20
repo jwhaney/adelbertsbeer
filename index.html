@@ -6,51 +6,54 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     
 	<title>Find Adelbert's Beer</title>
-	
-    <!-- Load font awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     
     <!-- Load jQuery -->
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    
+    <!-- Load Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+    <!-- Load font awesome stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     
     <!-- Load Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
     
+    <!-- Load awesome markers-->
+    <link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+    <script src="js/leaflet.awesome-markers.js"></script>
+    
     <!-- Load my local content -->
 	<link href="css/style.css" rel="stylesheet" />
+    <script src="js/counties.json"></script>
+    <script src="js/adelberts.json"></script>
+    <script src="js/states.json"></script>
     
-    <!-- Load local leaflet zoomhome content -->
-    <link rel="stylesheet" href="css/leaflet.zoomhome.css" />
-    <script src="js/leaflet.zoomhome.min.js"></script>
+    <!-- locate control -->
+    <link href="css/leaflet_locate.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
     
-    <!-- Load local leaflet locate -->
-    <link rel="stylesheet" href="css/leaflet_locate.css" />
-    <script src="js/"></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.0.6"></script>
     
-    <!-- Load ESRI Leaflet Geocoder -->
-    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.1.4/dist/esri-leaflet-geocoder.css">
-    <script src="https://unpkg.com/esri-leaflet-geocoder@2.1.4"></script>
-
+    <!-- Load Esri Leaflet Geocoder from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.2/dist/esri-leaflet-geocoder.css">
+    <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.2"></script>
+    
 </head>
 
 <body>
 
 <div id='map'></div>
 
-<div class='buttonContainer'>
-	<a href='#' id='home' class='icon home' onclick='fit()'></a>
-</div>
-
-<div class='container'>
+<div class='logo'>
 	<a href='http://adelbertsbeer.com'>
 	<img src='images/adelberts.png' width='205' height='204' />
 </div>
 
-<!-- Data Source for distributor counties -->
-<script src="javascript/counties.json"></script>
-<!-- Map -->
-<script src="javascript/map.js"></script>
+<script src='js/map.js'></script>
 
 </body>
 </html>

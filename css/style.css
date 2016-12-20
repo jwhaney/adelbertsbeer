@@ -3,9 +3,10 @@ body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0px; bottom: 0px; width: 100% }
 
 .buttonContainer {background: #FFF; display: block; position: absolute; top: 150px; left: 10px; width: 28px; height: 28px; text-align: center; padding: 1px; border: 1px solid rgba(0, 0, 0, 0.4); border-radius: 3px;}
-		.buttonContainer1:hover {background: #A9A9A9;}
 
-.container {position: fixed; width: 13%; padding-bottom: 12%; bottom: 10px; left: 10px;}
+.buttonContainer1:hover {background: #A9A9A9;}
+
+.logo {position: fixed; width: 13%; padding-bottom: 12%; bottom: 10px; left: 10px; z-index: 99;}
 
 img {
   width: 100%;
