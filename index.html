@@ -26,14 +26,18 @@
     <script src="js/leaflet.awesome-markers.js"></script>
     
     <!-- Load my local content -->
-	<link href="css/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.css" />
     <script src="js/counties.json"></script>
     <script src="js/adelberts.json"></script>
     <script src="js/states.json"></script>
     
     <!-- locate control -->
-    <link href="css/leaflet_locate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/leaflet_locate.css" />
     <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+    
+    <!-- zoom home -->
+    <link rel="stylesheet" href="css/leaflet.zoomhome.css" />
+    <script src="js/leaflet.zoomhome.min.js"></script>
     
     <!-- Load Esri Leaflet from CDN -->
     <script src="https://unpkg.com/esri-leaflet@2.0.6"></script>
@@ -45,13 +49,13 @@
 </head>
 
 <body>
+    
+    <div id='map'></div>
 
-<div id='map'></div>
-
-<div class='logo'>
-	<a href='http://adelbertsbeer.com'>
-	<img src='images/adelberts.png' width='205' height='204' />
-</div>
+    <div id='logo'>
+	   <a href='http://adelbertsbeer.com'>
+	   <img src='images/adelberts.png' width='205' height='204' />
+    </div>
 
 <script src='js/map.js'></script>
 
