@@ -1,6 +1,9 @@
 //create map
 var map = L.map('map', {zoomControl: false}).setView([31.755, -94.444], 6);
 
+//create data variables
+//var states = L.geojson()
+
 //load osm basemap tiles
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
