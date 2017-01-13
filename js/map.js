@@ -22,12 +22,7 @@ var searchControl = L.esri.Geocoding.geosearch().addTo(map);
 var results = L.layerGroup().addTo(map);
 
 //load counties.json, style based on distributor attribute, bindpopup
-var countyPopup = function (feature, layer) {
-    layer.bindPopup(feature.properties.COUNTY)
-};
-
 L.geoJson(counties, {
-    onEachFeature: countyPopup,
     style: function (feature) {
         switch (feature.properties.DIST) {
         case 'Favorite Brands New Mexico':
@@ -43,13 +38,16 @@ L.geoJson(counties, {
         case 'Crafty Connoisseurs Distributing':
             return { color: "#0066ff", fillOpacity: 0, weight: 2 };
         }
+    },
+    onEachFeature: function (feature, layer) {
+        layer.bindPopup('<b>' + feature.properties.COUNTY + ' County, ' + feature.properties.STATE + '</b><br><a href=' + feature.properties.URL + ' target="_blank">' + feature.properties.DIST + '</a>');
     }
 }).addTo(map);
 
 //Load states.json and style
-L.geoJson(states, {
+L.geoJson(statesLn, {
     style: function (feature) {
-        return {color: "#666666", weight: 2.5, fillOpacity: 0, dashArray: "5"};
+        return {color: "#666666", weight: 2.5, dashArray: "5"};
     }
 }).addTo(map);
 
@@ -59,7 +57,3 @@ var beer = L.marker([30.3825210, -97.7199070], {title: "Adelberts Brewery"});
 var beerContent = "<strong>Adelberts Brewery World Headquarters</strong>" + "<br>" + "2314 Rutland Drive, Suite #100" + "<br>" + "Austin, Texas 78758" + "<br>" + "(512) 662-1462 | <a href='http://adelbertsbeer.com/'>adelbertsbeer.com</a>";
 
 beer.bindPopup(beerContent).addTo(map);
-
-/*
-
-*/
