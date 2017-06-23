@@ -4,4 +4,4 @@ This is a web map created for Adelbert's Brewery in Austin, TX. The map displays
 
 Adelbert's Brewery Web Map: https://adelbertsbeer.github.io/
 
-You can also access the map directly from Adelbert's website at http://adelbertsbeer.com/ and then clicking the 'Locations' tab on the menu.
+You can also access the map directly from Adelbert's website at http://adelbertsbeer.com/ and then selecting Locations from the menu.
